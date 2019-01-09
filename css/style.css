@@ -19,7 +19,8 @@ body{
   font-size: 16px;
   line-height: 1.7; /* 1.7 times bigger than the previously defined line height */
   color: #777;
-  padding: 30px;
+  /* padding: 30px; */
+  /* padding-bottom: 0; */
 }
 
 .header{
@@ -46,13 +47,17 @@ body{
   top: 40%;
   left: 50%;
   transform: translate(-50%, -50%);
+  text-align: center;
 }
 
 .heading-primary{
   color: #fff;
   text-transform: uppercase;
 
+  /* shaky effect is gone because of it  */
   backface-visibility: hidden; /* entire element moves on animation and is shaky. This property defines that back part of the element when we transform it is visible or hidden to the user*/
+
+  margin-bottom: 60px;
 }
 
 .heading-primary-main{
@@ -84,6 +89,8 @@ body{
    2. Use animations
 */
 
+/* Browsers arre optimized for opacity and transform pproperties */
+
 @keyframes moveInLeft {
   0%{
     opacity: 0;
@@ -114,4 +121,73 @@ body{
     opacity: 1;
     transform: translate(0);
   }
+}
+
+@keyframes moveInBottom {
+  0%{
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  100%{
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+
+
+/* pseudo class is a special state of for the selector */
+.btn:link, .btn-visited {
+  text-decoration: none;
+  text-transform: uppercase;
+  padding: 15px 40px;
+  display: inline-block;
+  border-radius: 100px;
+  transition: all 0.2s;
+  position: relative;
+}
+
+.btn:hover{
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* x y intensity color*/
+}
+
+.btn:active{
+  transform: translate(-1px);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.btn-white{
+  background-color: #fff;
+  color: #777;
+}
+
+.btn::after{
+  content: '';
+  display: inline-block;
+  height: 100%; /* of the height of the button */
+  width: 100%; /* of the width of the button */
+  border-radius: 100px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  transition: all .4s;
+}
+
+.btn-white::after{
+  background-color: #fff;
+}
+
+.btn:hover::after{
+  transform: scaleX(1.4) scaleY(1.6);
+  opacity: 0;
+}
+
+.btn-animated{
+  animation-name: moveInBottom;
+  animation-duration: 1s;
+  animation-timing-function: ease-out;
+  animation-delay: 0.75s;
+  animation-fill-mode: backwards; /* applies the style of 0% to the animation */
 }
