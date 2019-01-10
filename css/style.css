@@ -6,21 +6,30 @@ Dark green: #28b485
 */
 
 /* Normalize.css is used to reset the css */
-/* manual css reset * and body  */
-*{
+/* manual css reset * html and body  */
+*, *::after, *::before{
   margin: 0;
   padding: 0;
-  box-sizing: border-box; /* borders and paddings are not added to the total width or total height that we specify for box-model*/
+  box-sizing: inherit; /* This will force all the components to inherit box-sizing property  */
+}
+
+html{
+  /* Default font size of the browser is 16px */
+  font-size: 62.5% ;  /* using rem applies the padding and according to the font-size so always define font sizes in rems*/
+  /* We are allowing the user to zoom in and out of the page by changing the font-size of the browser and adjusting our font-size accordingly*/
 }
 
 body{
   font-family: 'Lato', sans-serif;/* font related properties go here as they are inherited from the body */
   font-weight: 400;
-  font-size: 16px;
+  /* font-size: 16px; */
   line-height: 1.7; /* 1.7 times bigger than the previously defined line height */
   color: #777;
-  /* padding: 30px; */
+  /* padding: 3rem; */
   /* padding-bottom: 0; */
+
+  box-sizing: border-box; /* borders and paddings are not added to the total width or total height that we specify for box-model*/
+  /* The widths and heights that we specify it gets applied to everything including the padding */
 }
 
 .header{
@@ -32,17 +41,17 @@ body{
   position: relative; /* gives an origin for the absolute position*/
 }
 
-.logo-box{
+.header__logo-box{
   position: absolute;
-  top: 40px;
-  left: 40px;
+  top: 4rem;
+  left: 4rem;
 }
 
-.logo{
-  height: 35px; /*width is taken care by the browser*/
+.header__logo{
+  height: 3.5rem; /*width is taken care by the browser*/
 }
 
-.text-box{
+.header__text-box{
   position: absolute;
   top: 40%;
   left: 50%;
@@ -57,14 +66,14 @@ body{
   /* shaky effect is gone because of it  */
   backface-visibility: hidden; /* entire element moves on animation and is shaky. This property defines that back part of the element when we transform it is visible or hidden to the user*/
 
-  margin-bottom: 60px;
+  margin-bottom: 6rem;
 }
 
-.heading-primary-main{
+.heading-primary--main{
   display: block;
-  font-size: 60px;
+  font-size: 6rem;
   font-weight: 400;
-  letter-spacing: 35px;
+  letter-spacing: 3.5rem;
 
   animation-name: moveInLeft; /* name of the keyframes should match here. */
   animation-duration: 1s;  /* for how many time you want the animation to happen. */
@@ -74,11 +83,11 @@ body{
   /* animation-delay: 3s; /* after how much time you want to start the animation */
 }
 
-.heading-primary-sub{
+.heading-primary--sub{
   display: block;
-  font-size: 20px;
+  font-size: 2rem;
   font-weight: 400;
-  letter-spacing: 17.4px;
+  letter-spacing: 1.74rem;
   font-weight: 700;
 
   animation: moveInRight 1s ease-out; /* name duration and timing-function*/
@@ -94,11 +103,11 @@ body{
 @keyframes moveInLeft {
   0%{
     opacity: 0;
-    transform: translateX(-100px);
+    transform: translateX(-10rem);
   }
 
   80%{
-    transform: translateX(10px);
+    transform: translateX(1rem);
   }
 
   100%{
@@ -110,11 +119,11 @@ body{
 @keyframes moveInRight {
   0%{
     opacity: 0;
-    transform: translateX(100px);
+    transform: translateX(10rem);
   }
 
   80%{
-    transform: translateX(-10px);
+    transform: translateX(-1rem);
   }
 
   100%{
@@ -126,7 +135,7 @@ body{
 @keyframes moveInBottom {
   0%{
     opacity: 0;
-    transform: translateY(30px);
+    transform: translateY(3rem);
   }
 
   100%{
@@ -140,24 +149,25 @@ body{
 .btn:link, .btn-visited {
   text-decoration: none;
   text-transform: uppercase;
-  padding: 15px 40px;
+  padding: 1.5rem 4rem;
   display: inline-block;
-  border-radius: 100px;
+  border-radius: 10rem;
   transition: all 0.2s;
   position: relative;
+  font-size: 1.6rem;
 }
 
 .btn:hover{
-  transform: translateY(-3px);
+  transform: translateY(-0.3rem);
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* x y intensity color*/
 }
 
 .btn:active{
-  transform: translate(-1px);
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  transform: translate(-0.1rem);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
 }
 
-.btn-white{
+.btn--white{
   background-color: #fff;
   color: #777;
 }
@@ -167,7 +177,7 @@ body{
   display: inline-block;
   height: 100%; /* of the height of the button */
   width: 100%; /* of the width of the button */
-  border-radius: 100px;
+  border-radius: 10rem;
   position: absolute;
   top: 0;
   left: 0;
@@ -175,7 +185,7 @@ body{
   transition: all .4s;
 }
 
-.btn-white::after{
+.btn--white::after{
   background-color: #fff;
 }
 
@@ -184,7 +194,7 @@ body{
   opacity: 0;
 }
 
-.btn-animated{
+.btn--animated{
   animation-name: moveInBottom;
   animation-duration: 1s;
   animation-timing-function: ease-out;
