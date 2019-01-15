@@ -1,0 +1,19 @@
+
+/* Normalize.css is used to reset the css */
+/* manual css reset * html and body  */
+*, *::after, *::before{
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit; /* This will force all the components to inherit box-sizing property  */
+}
+
+html{
+  /* Default font size of the browser is 16px */
+  font-size: 62.5% ;  /* using rem applies the padding and according to the font-size so always define font sizes in rems*/
+  /* We are allowing the user to zoom in and out of the page by changing the font-size of the browser and adjusting our font-size accordingly*/
+}
+
+body{
+  box-sizing: border-box; /* borders and paddings are not added to the total width or total height that we specify for box-model*/
+  /* The widths and heights that we specify it gets applied to everything including the padding */
+}

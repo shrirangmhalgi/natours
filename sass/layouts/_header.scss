@@ -1,0 +1,28 @@
+
+.header{
+  height: 95vh;
+  background-image: linear-gradient(to right bottom, rgba($color-primary-light, 0.8), rgba($color-primary-dark, 0.8)), url('../img/hero.jpg');
+  background-size: cover; /* always tries to fit the image in the viewport height */
+  background-position: top; /* keeps the top as it is and crops the bottom of the image. */
+  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%); /* used to give irregular shapes in the webpage. REFERENCE: CLIPPY TOOL*/
+  position: relative; /* gives an origin for the absolute position*/
+
+  &__logo-box{
+    position: absolute;
+    top: 4rem;
+    left: 4rem;
+  }
+
+
+  &__logo{
+    height: 3.5rem; /*width is taken care by the browser*/
+  }
+
+  &__text-box{
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
+}

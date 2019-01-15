@@ -1,0 +1,41 @@
+body{
+  font-family: 'Lato', sans-serif;/* font related properties go here as they are inherited from the body */
+  font-weight: 400;
+  /* font-size: 16px; */
+  line-height: 1.7; /* 1.7 times bigger than the previously defined line height */
+  color: $color-grey-dark;
+  /* padding: 3rem; */
+  /* padding-bottom: 0; */
+}
+
+.heading-primary{
+  color: $color-white;
+  text-transform: uppercase;
+  /* shaky effect is gone because of it  */
+  backface-visibility: hidden; /* entire element moves on animation and is shaky. This property defines that back part of the element when we transform it is visible or hidden to the user*/
+  margin-bottom: 6rem;
+
+  &--main{
+    display: block;
+    font-size: 6rem;
+    font-weight: 400;
+    letter-spacing: 3.5rem;
+
+    animation-name: moveInLeft; /* name of the keyframes should match here. */
+    animation-duration: 1s;  /* for how many time you want the animation to happen. */
+    animation-timing-function: ease-out; /* faster and then slower */
+
+    /* animation-iteration-count: infinite;  /* how many times you want your animation to happen*/
+    /* animation-delay: 3s; /* after how much time you want to start the animation */
+  }
+
+  &--sub{
+    display: block;
+    font-size: 2rem;
+    font-weight: 400;
+    letter-spacing: 1.74rem;
+    font-weight: 700;
+
+    animation: moveInRight 1s ease-out; /* name duration and timing-function*/
+  }
+}
