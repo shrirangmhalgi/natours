@@ -1,0 +1,40 @@
+.row{
+  max-width: $grid-width;
+  background-color: #eee;
+  margin: 0 auto;
+
+  //not pseudo selector -> select everything except the last child
+  &:not(:last-child){
+    margin-bottom: $gutter-vertical;
+  }
+
+  @include clearfix;
+
+  //attribute selector
+  //select all the elements which begin with col
+  //^ --> used for beginning
+  //* --> used for all things including in between
+  //$ --> any class that ends with col
+  [class^="col-"]{
+
+  }
+
+  .col-1-of-2{
+    //allows us to do calculations
+    //we can mix rems and px in calc function
+    //sass doesnt allow you to do this as it is in the rendering phase
+    //if you want to use a sass variable in css then you need to use #{$varname} property
+    width: calc((100% - #{$gutter-horizontal})/2);
+    background-color: orangered;
+    float: left;
+
+    &:not(:last-child){
+      margin-right: $gutter-horizontal;
+    }
+  }
+
+  .col-1-of-3{
+    width: calc((100% - 2 * #{$gutter-horizontal})/3);
+
+  }
+}
