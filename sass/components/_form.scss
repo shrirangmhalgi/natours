@@ -1,0 +1,102 @@
+.form{
+  &__group:not(:last-child){
+    margin-bottom: 2rem;
+  }
+
+  &__input{
+    font-size: 1.5rem;
+    font-family: inherit; //inherits the user font-family
+    color: inherit;
+    padding: 1.5rem 2rem;
+    border-radius: 2px;
+    background-color: rgba($color-white, 0.5);
+    border: none;
+    border-bottom: 3px solid transparent;
+    width: 90%;
+    display: block;
+    transition: all 0.3s;
+
+    &::-webkit-input-placeholder{
+      color: $color-grey-dark-2;
+    }
+
+    &:focus{
+      //focuses the elements such as the forms input fields
+      //the blue line we see is the outline of the form
+      //this is imp for the people who use the webpage with keyboard and not mouse
+      outline: none;
+      box-shadow: 0 1rem 2rem rgba($color-black, 0.1);
+      border-bottom: 3px solid $color-primary;
+
+      //invalid and valid is used for different stylings to show weather you entered correct info or no
+      &:invalid{
+        border-bottom: 3px solid $color-secondary-dark;
+      }
+    }
+  }
+
+  &__label{
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-left: 2rem;
+    margin-top: 0.7rem;
+    display: block;
+    transition: all .3s;
+  }
+
+  // + is used for the adjacent 1st sibling
+  // ~ is a general sibling selector and can be used on multiple siblings
+  //the sibling should be after the input element and not before
+  //be careful with the above order when you use sibling selector
+  &__input:placeholder-shown + &__label{
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-4rem);
+  }
+
+  &__radio-group{
+    width: 49%;
+    display: inline-block;
+  }
+
+  &__radio-input{
+    display: none;
+  }
+
+  &__radio-label{
+    font-size: $default-font-size;
+    cursor: pointer;
+    position: relative;
+    padding-left: 5rem;
+  }
+
+  &__radio-button{
+    height: 3rem;
+    width: 3rem;
+    border: 5px solid $color-primary;
+    border-radius: 50%; //this doesnt work on the inline elements so we need to set it to inline-block
+    display: inline-block;
+    position: absolute;
+    left: 0;
+    top: -0.4rem;
+
+    &::after{
+      content: "";
+      display: block;
+      height: 1.3rem;
+      width: 1.3rem;
+      border-radius: 50%;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: $color-primary;
+      opacity: 0;
+      transition: opacity 0.2s;
+    }
+
+    &__radio-input:checked ~ &__radio-label &__radio-button::after{
+      opacity: 1;
+    }
+  }
+}

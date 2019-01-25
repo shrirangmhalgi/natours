@@ -28,3 +28,23 @@
    position: relative;
    padding: 15rem 0;
 }
+
+.section-book{
+  padding: 15rem 0;
+  background-image: linear-gradient(to right bottom, $color-primary-light, $color-primary-dark);
+}
+
+.book{
+  //linear-gradient 1st we defined the angle then the colors along with their percentages and then if we keep 2 colors same then we would get a solid line
+  background-image: linear-gradient(105deg, rgba($color-white, 0.9) 0%, rgba($color-white, 0.9) 50%, transparent 50%), url("../img/nat-10.jpg");
+  background-size: cover; //100% means cover
+  border-radius: 3px;
+  box-shadow: 0 1.5rem 4rem rgba($color-black, 0.15);
+
+  height: 50rem;
+
+  &__form{
+    width: 50%;
+    padding: 6rem;
+  }
+}
