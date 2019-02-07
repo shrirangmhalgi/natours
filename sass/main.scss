@@ -22,3 +22,13 @@
 @import "layouts/navigation";
 
 @import "pages/home";
+
+
+//mobile first vs desktop first applications.
+//desktop first applications :- optimize things for large desktops [max-width approach]
+//mobile first applications :- optimize is done for mobiles and then large desktops [min width approach]
+//media queries are the tools to overwrite specific properties for different viewport heights
+//both media queries apply if the condition gets satisfied.
+//but if we overwrite then the element which appears last gets applied
+//never use devices as breakpoints.
+//instead use the device where the design starts to break.

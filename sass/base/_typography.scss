@@ -4,8 +4,6 @@ body{
   /* font-size: 16px; */
   line-height: 1.7; /* 1.7 times bigger than the previously defined line height */
   color: $color-grey-dark;
-  /* padding: 3rem; */
-  /* padding-bottom: 0; */
 }
 
 .heading-primary{
@@ -27,6 +25,11 @@ body{
 
     /* animation-iteration-count: infinite;  /* how many times you want your animation to happen*/
     /* animation-delay: 3s; /* after how much time you want to start the animation */
+
+    @include respond(phone){
+      letter-spacing: 1rem;
+      font-size: 5rem;
+    }
   }
 
   &--sub{
@@ -37,6 +40,10 @@ body{
     font-weight: 700;
 
     animation: moveInRight 1s ease-out; /* name duration and timing-function*/
+
+    @include respond(phone){
+      letter-spacing: 0.5rem;
+    }
   }
 }
 
@@ -50,6 +57,14 @@ body{
   color: transparent; //if we do not do it transparent then it will sit on the gradient
   letter-spacing: .2rem;
   transition: all 0.2s;
+
+  @include respond(tab-port){
+    font-size: 3rem;
+  }
+
+  @include respond(phone){
+    font-size: 2.5rem;
+  }
 
   &:hover{
     transform: skewY(2deg) skewX(15deg) scale(1.1);

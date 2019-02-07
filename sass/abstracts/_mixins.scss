@@ -12,3 +12,59 @@
   left: 50%;
   transform: translate(-50%, -50%);
 }
+
+//media query manager.
+/*
+  0-600px phone
+  600-900px tablets portait
+  900 1200px tablets landscape
+  1200-1800px desktops  (normal styles apply here)
+  1800+px big desktop
+
+content adds a block of code into the mixin
+
+   $breakpoint argument choices
+   - phone
+   - tab-port
+   - tab-land
+   - big-desktop
+*/
+
+//in this we are going to pass a breakpoint
+//1em = 16px;
+//order of editing media queries
+//generalized to specialized
+//base + typography > general layout + grid > page layout > components
+@mixin respond($breakpoint) {
+  //media query for phone
+  @if $breakpoint == phone {
+    @media (max-width: 37.5em){   //600px
+      @content
+    };
+  }
+
+  //media query for tab-port
+  @if $breakpoint == tab-port {
+    @media (max-width: 56.25em){   //900px
+      @content
+    };
+  }
+
+  //media query for tab-land
+  @if $breakpoint == tab-land {
+    @media (max-width: 75em){   //1200px
+      @content
+    };
+  }
+
+  //media query for big-desktop
+  @if $breakpoint == big-desktop {
+    @media (min-width: 112.5em){   //1800px
+      @content
+    };
+  }
+}
+
+//font-size doesnt get affected in the root element
+//i.e. 1rem or 1em is always 16px which the font-size of the browser
+//em is the best option for media queries
