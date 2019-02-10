@@ -349,7 +349,16 @@
 
       <footer class="footer">
         <div class="footer__logo-box">
-          <img src="img/logo-green-2x.png" alt="Full logo" class="footer__logo">
+          <!-- art direction technique -->
+          <picture class="footer__logo">
+            <!-- srcset can contain multiple images and media takes the input of media query -->
+            <source srcset="img/logo-green-small-1x.png 1x, img/logo-green-small-2x.png 2x" media="(max-width: 37.5em)">
+            <img srcset="img/logo-green-1x.png 1x, img/logo-green-2x.png 2x" alt="Full logo">
+            <!-- srcset allows you to define multiple images and the browser chooses the optimized image correctly wrt resolution -->
+            <!-- here the density descriptor is used -->
+            <!-- best image outof the two is choosen -->
+            <!-- density descriptor -->
+          </picture>
         </div>
         <div class="row">
           <div class="col-1-of-2">
