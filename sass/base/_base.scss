@@ -35,3 +35,9 @@ body{
     padding: 0;
   }
 }
+
+//this is a pseudo class which applies to the everything selected
+::selection{
+  background-color: $color-primary;
+  color: $color-white;
+}
