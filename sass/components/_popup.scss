@@ -11,6 +11,17 @@
   visibility: hidden;
   transition: all 0.3s;
 
+  // Graceful degredation......
+
+  //feature queries asks the browser weather it supports some property or no..?
+  //if yes then that query is applied.
+  //if no then that query is not applied.
+  @supports (-webkit-backdrop-filter: blur(10px)) or (backdrop-filter: blur(10px)) {
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    background-color: rgba($color-black, 0.3);
+  }
+
   &__content{
     @include absoluteCenter;
 
